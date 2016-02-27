@@ -12,6 +12,8 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename 
 from form import SignUpForm
 app = Flask(__name__)
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'Info3180'
 if os.environ.get('INFO3180_URL') is None:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:3180@localhost/info3180'
@@ -114,6 +116,4 @@ def page_not_found(error):
 
 
 if __name__ == '__main__':
-    app.logger.addHandler(logging.StreamHandler(sys.stdout))
-    app.logger.setLevel(logging.ERROR)
     app.run(debug=True,host='0.0.0.0',port=8080)
