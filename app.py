@@ -12,8 +12,8 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename 
 from form import SignUpForm
 app = Flask(__name__)
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
+#app.logger.addHandler(logging.StreamHandler(sys.stdout)) #Debugging
+#app.logger.setLevel(logging.ERROR) #Debugging
 app.config['SECRET_KEY'] = 'Info3180'
 if os.environ.get('INFO3180_URL') is None:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:3180@localhost/info3180'
@@ -54,7 +54,7 @@ def form():
 def profile(userid):
     user = models.User.query.filter_by(userid=userid).first()
     if user:
-        if request.headers['Content-Type'] == 'application/json' or request.method == 'POST':
+        if request.headers.get('Content-Type', 'text/html') == 'application/json' or request.method == 'POST':
             return jsonify({'userid': user.userid, 'username': user.username, 'image': user.image,
             'sex':user.gender, 'age': user.age, 'profile_add_on': user.created.strftime("%a, %-d %b %Y")})
         else:
@@ -70,7 +70,7 @@ def profiles():
         formatted_users = []
         for user in users:
             formatted_users.append({'username': user.username, 'userid': user.userid})
-        if request.headers['Content-Type'] == 'application/json' or request.method == 'POST':
+        if request.headers.get('Content-Type', 'text/html') == 'application/json' or request.method == 'POST':
             return jsonify(users=formatted_users)
         return render_template('profiles.html',users=formatted_users)
     return 'No user in database'
