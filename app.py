@@ -35,7 +35,6 @@ def form():
         age = request.form['age']
         gender = request.form['gender']
         userid = request.form['userid']
-        print(userid)
         image = request.files['image']
         created = time.strftime("%a, %-d %b %Y")
         filename = secure_filename(image.filename)
@@ -62,7 +61,7 @@ def profile(userid):
                 age = user.age, img = user.image)
     return 'USER NOT FOUND'
 
-@app.route('/profiles', methods=['GET'])
+@app.route('/profiles', methods=['GET', 'POST'])
 def profiles():
     users = models.User.query.all()
     if users:
