@@ -13,10 +13,10 @@ from werkzeug.utils import secure_filename
 from form import SignUpForm
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Info3180'
-if os.environ.get('DATABASE_URL') is None:
+if os.environ.get('INFO3180_URL') is None:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:3180@localhost/info3180'
 else: 
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['INFO3180_URL']
 
 db = SQLAlchemy(app)
 import models
