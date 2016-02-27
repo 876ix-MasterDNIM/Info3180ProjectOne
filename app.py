@@ -21,9 +21,6 @@ else:
 db = SQLAlchemy(app)
 import models
 
-db.create_all()
-db.session.commit()
-
 ###
 # Routing for your application.
 ###
