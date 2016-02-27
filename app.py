@@ -6,7 +6,7 @@ Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
 
-import os, time, datetime
+import os, time, sys, logging
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename 
@@ -114,4 +114,6 @@ def page_not_found(error):
 
 
 if __name__ == '__main__':
+    app.logger.addHandler(logging.StreamHandler(sys.stdout))
+    app.logger.setLevel(logging.ERROR)
     app.run(debug=True,host='0.0.0.0',port=8080)
