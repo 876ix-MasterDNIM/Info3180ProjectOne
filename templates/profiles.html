@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Profiles</title>
+        <link rel="stylesheet" href="../static/css/profiles.css" type="text/css" />
+         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div class="page">
+            <h1>Users</h1>
+            <table>
+                <tr>
+                    <td><span class="heading">Username</span></td>
+                    <td><span class="heading">UserId</span></td>
+                </tr>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.userid }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>

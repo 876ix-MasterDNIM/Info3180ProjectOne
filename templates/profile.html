@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Profile</title>
+  <link rel="stylesheet" href="../static/css/profile.css" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="page">
+    <h1>Profile</h1>
+    <img class='photo' src="../static/uploads/{{ img }}" alt="Profile photo" />
+    <div class="infoblock">
+      <table>
+        <tr>
+          <td>
+            Name: {{ name }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Profile added on: {{ time }}
+          </td>
+        </tr>
+        <tr style="border-bottom: 0px;">
+          <td>
+            Username: {{ username }}
+            <br>
+            <br> ID: {{ id }}
+            <br>
+            <br> Sex: {{ gender }}
+            <br>
+            <br> Age: {{ age }}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

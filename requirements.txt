@@ -1,0 +1,23 @@
+# ----------------------
+# Flask
+# ----------------------
+flask
+
+
+# ----------------------
+# Testing
+# ----------------------
+mock
+
+
+# ----------------------
+# Production Server
+# ----------------------
+gevent
+gunicorn
+
+#
+# Other Requirements
+#
+flask-sqlalchemy
+flask-wtf
