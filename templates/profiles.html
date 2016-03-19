@@ -2,17 +2,44 @@
 <html>
     <head>
         <title>Profiles</title>
-        <link rel="stylesheet" href="../static/css/profiles.css" type="text/css" />
-         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
     </head>
     <body>
-        <div class="page">
-            <h1>Users</h1>
-            <table>
+    
+    <nav>
+    <div class="nav-wrapper  teal darken-1">
+      <a href="#" class="brand-logo">&nbsp; Wishlist</img></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  
+  
+  
+  
+  <div class="row valign-wrapper">
+        <div class="col s12 m7 center-block">
+          <div class="card hoverable center">
+            <div class="card-image">
+              <img class="center-block" style="width: 50%; heigh: auto;" src="static/img/logo.gif">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+            <div class="row valign-wrappers">
+            <h4 class='teal-text text-darken-2'> Users</h4>
+            <table class="striped teal ">
+                <thead>
                 <tr>
-                    <td><span class="heading">Username</span></td>
-                    <td><span class="heading">UserId</span></td>
+                    <th><span class="heading">Username</span></th>
+                    <th><span class="heading">UserId</span></th>
                 </tr>
+                </thead>
                 {% for user in users %}
                 <tr>
                     <td>{{ user.username }}</td>
@@ -20,6 +47,17 @@
                 </tr>
                 {% endfor %}
             </table>
+            </div>
+            </div>
+          </div>
         </div>
+        </div>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('select').material_select();
+});
+</script>
     </body>
 </html>
