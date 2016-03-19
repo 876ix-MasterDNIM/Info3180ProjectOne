@@ -1,31 +1,23 @@
-.page {
-  background-color: #B2DFDB;
-  width: 700px;
-  height: 400px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.form {
-  font-family: 'Roboto', sans-serif;
-  font-size: 17px;
-  color: purple;
-  margin-left: 10px;
-  text-align: left;
-}
+/*.page {*/
+/*  background-color: #B2DFDB;*/
+/*  width: 700px;*/
+/*  height: 400px;*/
+/*  margin-left: auto;*/
+/*  margin-right: auto;*/
+/*}*/
 
+/*h1 {*/
+/*  font-family: 'Roboto', sans-serif;*/
+/*  color: purple;*/
+/*  text-align: center;*/
+/*  margin-top: 10px;*/
+/*}*/
 
-h1 {
-  font-family: 'Roboto', sans-serif;
-  color: purple;
-  text-align: center;
-  margin-top: 10px;
-}
+/*input {*/
+/*  margin: 10px;*/
+/*}*/
 
-input {
-  margin: 10px;
-}
-
-select {
-  margin: 10px;
-}
+/*select {*/
+/*  margin: 10px;*/
+/*}*/
