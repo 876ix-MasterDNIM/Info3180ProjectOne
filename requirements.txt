@@ -21,4 +21,6 @@ gunicorn
 #
 flask-sqlalchemy
 flask-wtf
-psycopg2 
+psycopg2
+bs4
+requests

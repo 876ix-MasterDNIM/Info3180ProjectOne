@@ -6,12 +6,12 @@
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 </head>
-<body>
+<body class="teal lighten-1">
 
 
     <nav>
     <div class="nav-wrapper  teal darken-1">
-      <a href="#" class="brand-logo">&nbsp; Wishlist</img></a>
+      <a href="#" class="brand-logo">&nbsp; Wishlist<sup>&reg;</sup></img></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="sass.html">Sass</a></li>
         <li><a href="badges.html">Components</a></li>
@@ -27,7 +27,7 @@
         <div class="col s12 m7 center-block">
           <div class="card hoverable center">
             <div class="card-image">
-              <img class="center-block" style="width: 50%; heigh: auto;" src="{{ url_for('static', filename='uploads/%s' % img) }}" alt="Profile photo">
+              <img class="center-block left" style="width: auto; height: 300px; margin-left: 27px;" src="{{ url_for('static', filename='uploads/%s' % img) }}" alt="Profile photo">
             </div>
             <div class="card-content">
             <div class="row valign-wrappers">

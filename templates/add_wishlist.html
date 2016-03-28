@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Profiles</title>
+  <link rel="stylesheet" href="static/css/wishlist.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+</head>
+
+<body class="teal lighten-1">
+
+  <nav>
+    <div class="nav-wrapper  teal darken-1">
+      <a href="#" class="brand-logo">&nbsp; Wishlist<sup>&reg;</sup></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="row valign-wrapper">
+    <div class="col s12 m7 center-block">
+      <div class="card hoverable center">
+        <div class="card-image">
+          <img class="center-block" style="width: 50%; height: auto;" src="static/img/logo.gif">
+        </div>
+        <div class="card-content">
+          <div class="row valign-wrappers">
+            <form class="col s12" method="POST" action="/add_wishlist">
+              <div class="row">
+
+                <div class="row">
+                  <label class="left col s3" for="item_url" required>Enter URL Of Item To Add To Wishlist</label>
+                  <input id="url" class="col s9" type="text" name="item_url" />
+                </div>
+                
+                  <div class="row">
+                  <label class="left col s3" for="item_url" required>Enter Title Of Item To Add To Wishlist</label>
+                  <input class="col s9" type="text" name="title" />
+                </div>
+                
+                <div class="row">
+                  <label class="left col s3" for="item_url" required>Enter Price Of Item To Add To Wishlist</label>
+                  <input class="col s9" type="text" name="price" />
+                </div>
+
+                <div class="input-field col s12">
+                  <textarea name="description" class="materialize-textarea" required></textarea>
+                  <label for="description">Item Description</label>
+                </div>
+
+                <label class="imgheading">Select Image To Use For Item Below</label>
+                <br><br>
+                
+                <div class="row imgs">
+                </div>
+                
+        
+                <div class="row">
+                  <input type="submit" class="btn center" value="Submit" name="submit" />
+                </div>
+
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script src="/static/js/add_item.js"> </script>
+  <script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+    $('#textarea1').val('New Text');
+    $('#textarea1').trigger('autoresize');
+    
+
+  </script>
+</body>
+
+</html>

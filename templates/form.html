@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 
 </head>
-<body>
+<body class="teal lighten-1">
     <nav>
     <div class="nav-wrapper  teal darken-1">
-      <a href="#" class="brand-logo">&nbsp; Wishlist</img></a>
+      <a href="#" class="brand-logo">&nbsp; Wishlist<sup>&reg;</sup></img></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="sass.html">Sass</a></li>
         <li><a href="badges.html">Components</a></li>
@@ -30,7 +30,7 @@
             <div class="card-content">
             <div class="row">
     <h4 class='teal-text text-darken-2'>&nbsp; Sign up below</h4>
-    <form class="col s12" method="post"  enctype="multipart/form-data"  onsubmit="return validate()">
+    <form class="col s12" method="post"  enctype="multipart/form-data" action="/profile"  onsubmit="return validate()">
         <div class="row">
         
       </div>
@@ -84,7 +84,7 @@
         
                 <div class="row">
     <div class="input-field">
-            {{ form.submit(id='submit', onsubmit='validate()', class='waves-effect waves-light btn') }}
+            {{ form.submit(id='submit', onsubmit='validate()', class='waves-effect waves-light btn left') }}
         </div>
       </div>
         

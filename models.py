@@ -1,6 +1,24 @@
 from app import db
 
 
+class Wishlist(db.Model):
+    __table__name = 'wishlist'
+    id = db.Column(db.Integer, primary_key=True)
+    price = db.Column(db.Numeric(10, 2))
+    title = db.Column(db.String(255))
+    description = db.Column(db.String(2000))
+    item_url = db.Column(db.String(255))
+    image_url = db.Column(db.String(300))
+    userid = db.Column(db.Integer)
+    
+    def __init__(self, price, title, desc, item_url, img_url, userid):
+        self.price = price
+        self.title = title 
+        self.description = desc 
+        self.item_url = item_url
+        self.image_url = img_url
+        seld.userid = userid
+
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)

@@ -6,11 +6,12 @@ Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
 
-import os, time, sys, logging
+import os, time, sys, logging, urllib2, requests
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename 
 from form import SignUpForm
+from bs4 import BeautifulSoup
 app = Flask(__name__)
 #app.logger.addHandler(logging.StreamHandler(sys.stdout)) #Debugging
 #app.logger.setLevel(logging.ERROR) #Debugging
@@ -49,7 +50,27 @@ def form():
         return '' + created + ' ' + lname + 'Fname' + fname
     else:
         return render_template('form.html', form=form)
-        
+
+@app.route('/crawl/<num>', methods=['POST'])
+def load_images(num):
+    pass
+@app.route('/crawl', methods=['POST'])
+def crawl():
+    content = request.json
+    try:
+        page = urllib2.urlopen(content['url']).read()
+        parsed_page = BeautifulSoup(page, 'html.parser')
+        imgs = [ img.get('src') for img in parsed_page.find_all('img')]
+        #imgs = [img for img in imgs if not img.startswith('/')]
+        if len(imgs) > 0:
+            return  jsonify({'imgs': imgs})
+        else:
+            return jsonify({'imgs': 'no images'})
+    except:
+        return jsonify({'imgs': 'no images'})
+
+
+
 @app.route('/profile/<userid>', methods=['POST', 'GET'])
 def profile(userid):
     user = models.User.query.filter_by(userid=userid).first()
@@ -63,6 +84,30 @@ def profile(userid):
                 age = user.age, img = user.image)
     return 'USER NOT FOUND'
 
+@app.route('/add_wishlist', methods=['POST', 'GET'])
+def add_wishlist():
+    if request.method == 'POST':
+        price = request.form['price']
+        desc = request.form['description']
+        item_url = request.form['item_url']
+        title = request.form['title']
+        img_url = request.form['img']
+        if not img_url:
+            img_url = 'static/img/Wishlist.jpg'
+        wish = models.Wishlist(price, title, desc, item_url, img_url, userid)
+    return render_template('add_wishlist.html')
+    
+    
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    if request.method == 'GET':
+        return render_template('login.html')
+    username = request.form['username']
+    user = models.User.query.filter_by(username=username).first()
+    if user:
+        return redirect(location='/profile/' + user.userid, code=302)
+    return "Account does not exist."
+    
 @app.route('/profiles', methods=['GET', 'POST'])
 def profiles():
     users = models.User.query.all()
